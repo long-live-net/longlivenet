@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}What's New{% endblock title %}
+
+{% block content %}
+
+<section id="newslist" class="center_block">
+  <h1>NEWS</h1>
+  <div class="news">
+    <ul>
+      {% for news in page_obj.object_list %}
+      <li>
+        <p class="wnh">
+          <span>{{news.release_day|date:"Y/m/d"}}</span>
+          {% if news.category == 'I' %}
+          <span>INFO</span>
+          {% elif news.category == 'S' %}
+          <span>SERVICE</span>
+          {% elif news.category == 'W' %}
+          <span>WORK</span>
+          {% elif news.category == 'T' %}
+          <span>TECH</span>
+          {% else %}
+          <span>Other</span>
+          {% endif %}
+        </p>
+        <p class="wnd">
+        <a href="{% url 'sitebase:newsdetail' news.id %}?page={{ page_obj.number }}">{{news.title}}</a>
+        </p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="pagination">
+    <span class="step_links">
+        {% if page_obj.has_previous %}
+          <a href="?page=1" class="button02">&lt;&lt;</a>
+          <a href="?page={{ page_obj.previous_page_number }}" class="button02">&lt;</a>
+        {% else %}
+          <span class="button02_dim">&lt;&lt;</span>
+          <span class="button02_dim">&lt;</span>
+        {% endif %}
+
+        <span class="current">
+          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        </span>
+
+        {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}" class="button02">&gt;</a>
+          <a href="?page={{ page_obj.paginator.num_pages }}" class="button02">&gt;&gt;</a>
+        {% else %}
+          <span class="button02_dim">&gt;</span>
+          <span class="button02_dim">&gt;&gt;</span>
+        {% endif %}
+    </span>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% block title %}ホーム{% endblock title %}
+
+{% block content %}
+
+{% load static %}
+
+<section id="topimage">
+  <div style="background-image: url('{% static 'images/top01.png' %}')">
+    <h1>情報技術を貴方のチカラに！<br>私がサポートいたします</h1>
+  </div>
+</section>
+
+
+<section id="message">
+  <h3 class="underline">Message</h3>
+  <div>
+    工事中・・・
+  </div>
+</section>
+
+
+<section>
+  <div class="pr_eyecatch" style="background-image: url('{% static 'images/traning01.png' %}')">
+    <h3>システム構成どうしたらいいのか正直判らない・・</h3>
+  </div>
+  <div class="pr_leader">
+    <p><span>大丈夫！私がご支援いたします。</span><span>お気軽にご相談ください</span></p>
+    <p class="lead_button"><a class="button01" href="#">大人のための学べるIT相談</a></p>
+  </div>
+</section>
+
+
+<section id="whatsnew">
+  <h3 class="underline">What's new</h3>
+  <div class="news">
+    <ul>
+      {% for news in news_list %}
+      <li>
+        <p class="wnh">
+          <span>{{news.release_day|date:"Y/m/d"}}</span>
+          {% if news.category == 'I' %}
+          <span>INFO</span>
+          {% elif news.category == 'S' %}
+          <span>SERVICE</span>
+          {% elif news.category == 'W' %}
+          <span>WORK</span>
+          {% elif news.category == 'T' %}
+          <span>TECH</span>
+          {% else %}
+          <span>Other</span>
+          {% endif %}
+        </p>
+        <p class="wnd"><a href="{% url 'sitebase:newsdetail' news.id %}">{{news.title}}</a></p>
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="morenews"><a href="{% url 'sitebase:news' %}">and more ...</a></p>
+  </div>
+</section>
+
+
+<section>
+  <div class="pr_eyecatch" style="background-image: url('{% static 'images/traning01.png' %}')">
+    <h3>システム構成どうしたらいいのか正直判らない・・</h3>
+  </div>
+  <div class="pr_leader">
+    <p><span>大丈夫！私がご支援いたします。</span><span>お気軽にご相談ください</span></p>
+    <p class="lead_button"><a class="button01" href="#">大人のための学べるIT相談</a></p>
+  </div>
+</section>
+
+
+<section id="services">
+  <h3 class="underline">Services</h3>
+  <div class="services">
+    <ul class="container">
+      <li class="box">
+        <ul>
+          <li class="service_title">AWS クラウドコンサル・技術支援</li>
+          <li class="service_img" style="background-image: url('/static/images/top01.png')"><a href="#"> </a></li>
+          <li class="service_comment">Amazon Web Service Japan (株) エンジニア OB としての技術的知見を元に、適切なサポートをご提供します。</li>
+        </ul>
+      </li>
+      <li class="box">
+        <ul>
+          <li class="service_title">IT相談・コンサルテーション</li>
+          <li class="service_img" style="background-image: url('/static/images/traning01.png')"><a href="#"></a></li>
+          <li class="service_comment">私はアマゾンウェブサービスジャパン(株)にてエンジニアとして勤務しておりましたので、その知見を元にした技術的なサポートをご提供いたします。</li>
+        </ul>
+      </li>
+      <li class="box">
+        <ul>
+          <li class="service_title">大人のプログラミング教室</li>
+          <li class="service_img" style="background-image: url('/static/images/top01.png')"><a href="#"></a></li>
+          <li class="service_comment">私はアマゾンウェブサービスジャパン(株)にてエンジニアとして勤務しておりましたので、その知見を元にした技術的なサポートをご提供いたします。</li>
+        </ul>
+      </li>
+      <li class="box">
+        <ul>
+          <li class="service_title">ホームページ作成</li>
+          <li class="service_img" style="background-image: url('/static/images/top01.png')"><a href="#"></a></li>
+          <li class="service_comment">私はアマゾンウェブサービスジャパン(株)にてエンジニアとして勤務しておりましたので、その知見を元にした技術的なサポートをご提供いたします。</li>
+        </ul>
+      </li>
+      <li class="box">
+        <ul>
+          <li class="service_title">システム開発</li>
+          <li class="service_img" style="background-image: url('/static/images/top01.png')"><a href="#"></a></li>
+          <li class="service_comment">私はアマゾンウェブサービスジャパン(株)にてエンジニアとして勤務しておりましたので、その知見を元にした技術的なサポートをご提供いたします。</li>
+        </ul>
+      </li>
+      <li class="box">
+        <ul>
+          <li class="service_title">Defi - シェアオフィス</li>
+          <li class="service_img" style="background-image: url('/static/images/top01.png')"><a href="#"></a></li>
+          <li class="service_comment">私はアマゾンウェブサービスジャパン(株)にてエンジニアとして勤務しておりましたので、その知見を元にした技術的なサポートをご提供いたします。</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+<section>
+  <div class="pr_eyecatch" style="background-image: url('{% static 'images/traning01.png' %}')">
+    <h3>システム構成どうしたらいいのか正直判らない・・</h3>
+  </div>
+  <div class="pr_leader">
+    <p><span>大丈夫！ご支援いたします。</span><span>お気軽にご相談ください</span></p>
+    <p class="lead_button"><a class="button01" href="#">大人のための学べるIT相談</a></p>
+  </div>
+</section>
+
+
+<section id="contact">
+  <h3 class="underline">Contact me</h3>
+  <div>
+    工事中・・・
+  </div>
+</section>
+
+{% endblock %}
