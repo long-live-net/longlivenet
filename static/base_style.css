@@ -4,6 +4,7 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
+  background-color: lightgray;
 }
 
 
@@ -17,10 +18,19 @@ header#headermenu {
   flex-flow: row nowrap;
   justify-content: space-between;
   color: white;
-  background-color: steelblue;
+  background-color: dimgray;
 }
 header#headermenu p.title {
   font-weight: bold;
+}
+header#headermenu p.title a {
+  color: yellow;
+}
+header#headermenu p.title a:hover {
+  color: orange;
+}
+header#headermenu p.title a:active {
+  color: hotpink;
 }
 header#headermenu ul {
   list-style: none;
@@ -100,10 +110,11 @@ section {
 /* index.html - topimage */
 /* --------------------- */
 #topimage {
+  margin-bottom: 180px;
 }
 #topimage div {
   position: relative;
-  padding-top: 680px;
+  padding-top: 50%;
   background-position: center center;
   background-size: cover;
 }
@@ -134,7 +145,8 @@ section {
 /* index.html - message  */
 /* --------------------- */
 #message {
-  margin: 70px 0 60px 0;
+  margin: -136px 0 180px 0;
+  padding-top: 136px;
   text-align: center;
 }
 
@@ -142,7 +154,7 @@ section {
 /* index.html - whatsnew */
 /* --------------------- */
 #whatsnew {
-  margin: 70px 0 60px 0;
+  margin: 180px 0;
   text-align: center;
 }
 
@@ -150,7 +162,8 @@ section {
 /* index.html - services */
 /* --------------------- */
 #services {
-  margin: 70px 0 60px 0;
+  margin: -136px 0 180px 0;
+  padding-top: 136px;
   text-align: center;
 }
 
@@ -158,10 +171,21 @@ section {
 /* index.html - contact  */
 /* --------------------- */
 #contact {
-  margin: 70px 0 60px 0;
+  margin: -136px 0 80px 0;
+  padding-top: 136px;
   text-align: center;
 }
 
+
+/* ------------------- */
+/* content block        */
+/* ------------------- */
+.content_block {
+  width: 80%;
+  min-width: 300px;
+  margin: 0 auto;
+  background-color: white;
+}
 
 /* ------------------- */
 /* center block        */
@@ -176,11 +200,9 @@ section {
 /* News-Grid Compornent */
 /* ------------------------ */
 div.news {
-  width: 75%;
-  min-width: 300px;
-  max-width: 720px;
+  max-width: 780px;
   margin: 0 auto;
-  padding: 10px;
+  padding: 40px;
 }
 div.news ul {
   list-style: none;
@@ -372,42 +394,43 @@ div.works ul.container > li.box ul li {
 /* mostly for index.html */
 /* --------------------- */
 .pr_eyecatch {
-  line-height: 240px;
+  line-height: 380px;
   text-align: center;
   background-position: center center;
   background-size: cover;
-}
-@media only screen and (max-width:734px) {
-  .pr_eyecatch {
-    line-height: 120px;
-  }
 }
 .pr_eyecatch h2, .pr_eyecatch h3, .pr_eyecatch h4 {
   display: inline-block;
   line-height: normal;
   vertical-align: middle;
   padding: 14px;
+  font-size: 1.5em;
   font-weight: bold;
   color: white;
   background-color: rgba(0,0,0,0.5);
 }
 .pr_leader {
-  background-color: lightgray;
-  margin:0;
-  padding: 0;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 40px;
 }
 .pr_leader p {
-  text-align: center;
+  text-align: left;
   margin:0;
-  padding: 12px 0 0 0;
-}
-.pr_leader p span {
-  white-space: nowrap;
+  padding: 10px;
 }
 .pr_leader p.lead_button {
-  padding: 6px 0 14px 0;
+  margin: 10px;
+  text-align: center;
 }
-
+@media only screen and (max-width:734px) {
+  .pr_eyecatch {
+    line-height: 240px;
+  }
+  .pr_eyecatch h2, .pr_eyecatch h3, .pr_eyecatch h4 {
+    font-size: 1.2em;
+  }
+}
 
 /* --------------------- */
 /* pagination Compornent */
@@ -496,7 +519,7 @@ footer {
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: navy;
+  background-color: dimgray;
 }
 footer ul {
   display: flex;
@@ -518,6 +541,12 @@ footer ul li a:hover {
 }
 footer ul li a:active {
   color: hotpink;
+}
+footer > div {
+  margin: 30px;
+  padding: 0;
+  text-align: center;
+  color: white;
 }
 
 @media only screen and (max-width:734px) {

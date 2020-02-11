@@ -6,30 +6,32 @@
 
 <section id="newslist" class="center_block">
   <h1>NEWS</h1>
-  <div class="news">
-    <ul>
-      {% for news in page_obj.object_list %}
-      <li>
-        <p class="wnh">
-          <span>{{news.release_day|date:"Y/m/d"}}</span>
-          {% if news.category == 'I' %}
-          <span>INFO</span>
-          {% elif news.category == 'S' %}
-          <span>SERVICE</span>
-          {% elif news.category == 'W' %}
-          <span>WORK</span>
-          {% elif news.category == 'T' %}
-          <span>TECH</span>
-          {% else %}
-          <span>Other</span>
-          {% endif %}
-        </p>
-        <p class="wnd">
-        <a href="{% url 'sitebase:newsdetail' news.id %}?page={{ page_obj.number }}">{{news.title}}</a>
-        </p>
-      </li>
-      {% endfor %}
-    </ul>
+  <div class="content_block">
+    <div class="news">
+      <ul>
+        {% for news in page_obj.object_list %}
+        <li>
+          <p class="wnh">
+            <span>{{news.release_day|date:"Y/m/d"}}</span>
+            {% if news.category == 'I' %}
+            <span>INFO</span>
+            {% elif news.category == 'S' %}
+            <span>SERVICE</span>
+            {% elif news.category == 'W' %}
+            <span>WORK</span>
+            {% elif news.category == 'T' %}
+            <span>TECH</span>
+            {% else %}
+            <span>Other</span>
+            {% endif %}
+          </p>
+          <p class="wnd">
+          <a href="{% url 'sitebase:newsdetail' news.id %}?page={{ page_obj.number }}">{{news.title}}</a>
+          </p>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
   </div>
   <div class="pagination">
     <span class="step_links">
@@ -53,6 +55,12 @@
           <span class="button02_dim">&gt;&gt;</span>
         {% endif %}
     </span>
+  </div>
+  <div>
+    <p class="lead_button">
+    <a class="button01" href="/#contact">お問い合わせ</a>
+    <a class="button01" href="/">ホーム</a>
+    </p>
   </div>
 </section>
 
