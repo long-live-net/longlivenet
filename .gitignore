@@ -106,5 +106,9 @@ venv.bak/
 # MAC
 .DS_Store
 
-# MyAoo
+# MyApplication
 media/
+static/admin/
+production/app/sitebase-on-django
+production/app/volume
+production/web/volume

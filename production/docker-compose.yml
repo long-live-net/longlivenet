@@ -1,0 +1,16 @@
+version: '3.2'
+services:
+  app:
+    build: ./app
+    volumes:
+      - sockets:/var/tmp/sockets
+      - ./app/volume/ngzm_export:/ngzm_export
+  web:
+    build: ./web
+    ports:
+      - "80:80"
+    volumes:
+      - sockets:/var/tmp/sockets
+      - ./web/volume/log:/var/log/nginx
+volumes:
+  sockets:
