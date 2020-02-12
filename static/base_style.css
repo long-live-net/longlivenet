@@ -5,6 +5,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: lightgray;
+  font-family: sans-serif;
 }
 
 
@@ -185,6 +186,11 @@ section {
   min-width: 300px;
   margin: 0 auto;
   background-color: white;
+}
+@media only screen and (max-width:734px) {
+  .content_block {
+  width: 100%;
+  }
 }
 
 /* ------------------- */
