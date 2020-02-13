@@ -15,9 +15,9 @@ COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 COPY ./sitebase /code/sitebase
 COPY setup.sh /code/sitebase
-RUN python manage.py collectstatic --no-input
 #
-EXPOSE 8008
 WORKDIR /code/sitebase
+RUN python manage.py collectstatic --no-input
 # start application
+EXPOSE 8008
 CMD ["uwsgi", "--ini", "/code/sitebase/sitebase.ini"]
