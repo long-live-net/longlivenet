@@ -4,7 +4,9 @@ services:
     build: ./app
     volumes:
       - sockets:/var/tmp/sockets
-      - ./app/volume/ngzm_export:/ngzm_export
+      - ./app/volume/db:/code/sitebase/db
+      - ./app/volume/log:/var/log/uwsgi
+      - ./app/volume/llwork:/llwork
   web:
     build: ./web
     ports:

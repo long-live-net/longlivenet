@@ -109,6 +109,6 @@ venv.bak/
 # MyApplication
 media/
 static/admin/
-production/app/sitebase-on-django
+production/app/sitebase
 production/app/volume
 production/web/volume
