@@ -26,7 +26,7 @@ SECRET_KEY = ')ztk3i4cgfg%2=3+93r6q64=0tj9rvaum8b&po6szqi269qt($'
 DEBUG = True
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['longlivenet.com', 'www.longlivenet.com']
+ALLOWED_HOSTS = ['longlivenet.com', 'www.longlivenet.com', 'localhost']
 
 
 # Application definition

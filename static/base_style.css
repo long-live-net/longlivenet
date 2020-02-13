@@ -19,7 +19,7 @@ header#headermenu {
   flex-flow: row nowrap;
   justify-content: space-between;
   color: white;
-  background-color: dimgray;
+  background-color: rgba(64,64,64,0.5);
 }
 header#headermenu p.title {
   font-weight: bold;
@@ -94,17 +94,14 @@ header#headermenu ul {
 }
 
 
-
 main {
-  flex: 1 1 auto;
   margin: 0;
-  padding: 136px 0 0 0;
+  padding: 0;
 }
 section {
   margin: 0;
   padding: 0; 
 }
-
 
 
 /* --------------------- */
@@ -115,14 +112,14 @@ section {
 }
 #topimage div {
   position: relative;
-  padding-top: 50%;
+  padding-top: 66%;
   background-position: center center;
   background-size: cover;
 }
 #topimage div h1 {
   position: absolute;
   display: inline-block;
-	top: 40%;
+	top: 44%;
 	left: 50%;
 	transform: translate(-50%, -50%);
   padding: 18px;
@@ -133,8 +130,11 @@ section {
   background-color: rgba(0,0,0,0.5);
 }
 @media only screen and (max-width:734px) {
+  #topimage {
+    margin-bottom: 100px;
+  }
   #topimage div {
-    padding-top: 75%;
+    padding-top: 100%;
   }
   #topimage div h1 {
     padding: 16px;
@@ -150,6 +150,11 @@ section {
   padding-top: 136px;
   text-align: center;
 }
+@media only screen and (max-width:734px) {
+  #message {
+    margin: -136px 0 100px 0;
+  }
+}
 
 /* --------------------- */
 /* index.html - whatsnew */
@@ -157,6 +162,11 @@ section {
 #whatsnew {
   margin: 180px 0;
   text-align: center;
+}
+@media only screen and (max-width:734px) {
+  #whatsnew {
+    margin: 100px 0;
+  }
 }
 
 /* --------------------- */
@@ -167,14 +177,24 @@ section {
   padding-top: 136px;
   text-align: center;
 }
+@media only screen and (max-width:734px) {
+  #services {
+    margin: -136px 0 100px 0;
+  }
+}
 
 /* --------------------- */
 /* index.html - contact  */
 /* --------------------- */
 #contact {
-  margin: -136px 0 80px 0;
+  margin: -136px 0 100px 0;
   padding-top: 136px;
   text-align: center;
+}
+@media only screen and (max-width:734px) {
+  #contact {
+    margin: -136px 0 100px 0;
+  }
 }
 
 
@@ -205,6 +225,13 @@ section {
 /* ------------------------ */
 /* News-Grid Compornent */
 /* ------------------------ */
+#newslist {
+  padding-top: 136px;
+}
+#news_detail {
+  padding-top: 136px;
+}
+
 div.news {
   max-width: 780px;
   margin: 0 auto;
