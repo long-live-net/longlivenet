@@ -14,7 +14,7 @@
     {% endif %}
     <ul>
       <li>発表日: {{news.release_day|date:"Y/m/d"}}</li>
-      <li>{{news.content}}</li>
+      <li>{{news.content  | linebreaksbr}}</li>
       {% if news.link %}
       <li>詳細はこちら▶︎ <a href="{{news.link}}" target="_blank">{{news.link}}</a></li>
       {% endif %}
