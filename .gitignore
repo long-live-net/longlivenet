@@ -112,3 +112,4 @@ static/admin/
 production/app/sitebase
 production/app/volume
 production/web/volume
+settings_ngzm.py

@@ -130,3 +130,14 @@ MEDIA_URL = '/media/'
 
 # NEWS-PAGE-ITEM-COUNT
 NEWS_PAGE_ITEM_COUNT = 5
+
+# メールサーバーへの接続設定
+EMAIL_HOST = 'example.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'user@example.com'
+EMAIL_HOST_PASSWORD = 'your-password'
+EMAIL_USE_TLS = True
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# FROM EMAIL Address on Contact form
+FROM_EMAIL_ADDRESS = 'user@example.com'

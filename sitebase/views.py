@@ -1,9 +1,11 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.views import generic
 from django.core import paginator
 from django.conf import settings
+from django.urls import reverse_lazy
 
 from .models import Topic
+from .forms import ContactForm
 
 
 class IndexView(generic.TemplateView):
@@ -41,4 +43,26 @@ def newsdetail(request, topic_id):
     page = request.GET.get('page')
     news = get_object_or_404(Topic, pk=topic_id)
     context = {'news': news, 'page': page}
-    return render(request, 'sitebase/newsdetail.html', context)
+    return render(request, 'sitebase/news_detail.html', context)
+
+
+class ContactView(generic.FormView):
+    form_class = ContactForm
+    template_name = "sitebase/contact.html"
+    success_url = reverse_lazy('sitebase:contactdone')
+
+    def form_valid(self, form):
+        ctx = {'form': form}
+        if self.request.POST.get('next', '') == 'confirm':
+            return render(self.request, 'sitebase/contact_confirm.html', ctx)
+        elif self.request.POST.get('next', '') == 'back':
+            return render(self.request, 'sitebase/contact.html', ctx)
+        elif self.request.POST.get('next', '') == 'send':
+            form.send_email()
+            return super().form_valid(form)
+        else:
+            return redirect(reverse_lazy('sitebase:contact'))
+
+
+class ContactDoneView(generic.TemplateView):
+    template_name = "sitebase/contact_done.html"

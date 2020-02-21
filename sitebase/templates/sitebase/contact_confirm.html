@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Confirm{% endblock title %}
+
+{% block content %}
+
+<section id="contact_confirm" class="center_block">
+  <h1>お問い合せ内容の確認</h1>
+  <div class ="contact_info">
+    <h4>以下の内容でメールを送信しますがよろしいでしょうか？</h4>
+    <hr>
+    <p>
+    <strong>{{ form.name.label }}</strong><br>{{ form.name.value }}
+    </p>
+    <p>
+    <strong>{{ form.email.label }}</strong><br>{{ form.email.value }}
+    </p>
+    <p>
+    <strong>{{ form.phone.label }}</strong><br>{{ form.phone.value }}
+    </p>
+    <p>
+    <strong>{{ form.comment.label }}</strong><br>{{ form.comment.value  | linebreaksbr }}
+    </p>
+    <hr>
+    <form action="{% url 'sitebase:contact' %}" method="POST">
+      {% csrf_token %}
+      {% for field in form %}
+      {{ field.as_hidden }}
+      {% endfor %}
+      <button type="submit" name="next" value="back" class="cbutton">修正する</button>
+      <button type="submit" name="next" value="send" class="cbutton">送信する</button>
+    </form>
+  </div>
+</section>
+
+{% endblock %}

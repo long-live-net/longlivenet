@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}ContactForm{% endblock title %}
+
+{% block content %}
+
+<section id="contact_form" class="center_block">
+  <h1>ロングリブネットへのお問い合せ</h1>
+  <div class ="cform">
+    <h4>メールでのご連絡は以下のフォームをご利用ください</h4>
+    <form method="post">
+      {% csrf_token %}
+      <p>
+      {{ form.errors.name }}
+      <label>
+        <strong>{{ form.name.label }}</strong><br>{{ form.name }}
+      </label>
+      </p>
+      <p>
+      {{ form.errors.email }}
+      <label>
+        <strong>{{ form.email.label }}</strong><br>{{ form.email }}
+      </label>
+      </p>
+      <p>
+      {{ form.errors.phone }}
+      <label>
+        <strong>{{ form.phone.label }}</strong><br>{{ form.phone }}
+      </label>
+      </p>
+      <p>
+      {{ form.errors.comment }}
+      <label>
+        <strong>{{ form.comment.label }}</strong><br>{{ form.comment }}
+      </label>
+      </p>
+      <button name="next" value="confirm" type="submit" class="cbutton">入力内容を確認する</button>
+    </form>
+  </div>
+  <div>
+    <p>
+    <a class="button01" href="javascript:history.back();">戻る</a>
+    <a class="button01" href="/">ホーム</a>
+    </p>
+  </div>
+
+</section>
+
+{% endblock %}

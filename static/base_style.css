@@ -223,15 +223,15 @@ section {
 
 
 /* ------------------------ */
-/* News-Grid Compornent */
+/* News List Compornent */
 /* ------------------------ */
 #newslist {
   padding-top: 136px;
 }
-#news_detail {
-  padding-top: 136px;
-}
 
+/* ------------------------ */
+/* Services-Grid Compornent */
+/* ------------------------ */
 div.news {
   max-width: 780px;
   margin: 0 auto;
@@ -279,8 +279,11 @@ div.news a:active {
 
 
 /* ------------------------ */
-/* News-Detail Compornent   */
+/* News Detail Compornent   */
 /* ------------------------ */
+#news_detail {
+  padding-top: 136px;
+}
 div.news_detail {
   margin: 0 auto 40px auto;
   width: 75%;
@@ -421,6 +424,71 @@ div.works ul.container > li.box ul li {
   text-align: left;
 }
 
+/* ------------------------ */
+/* Contact Compornent       */
+/* ------------------------ */
+/*** Contact Form ***/
+#contact_form {
+  padding-top: 136px;
+}
+div.cform {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  text-align: left;
+}
+div.cform input[type="text"], input[type="email"], textarea {
+  border: 1px solid #ccc;
+  width: 100%;
+}
+div.cform input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+  box-shadow: 0 0 7px #1abc9c;
+  border: 1px solid #1abc9c;
+}
+div.cform input[type="text"], input[type="email"] {
+  height: 2em;
+}
+@media only screen and (max-width:734px) {
+  div.cform {
+    width: 90%;
+  }
+}
+
+/*** Contact Confirm ***/
+#contact_confirm {
+  padding-top: 136px;
+}
+#contact_confirm form {
+  padding: 20px 0;
+}
+/*** Contact done ***/
+#contact_done {
+  padding-top: 136px;
+}
+div.contact_info {
+  max-width: 680px;
+  margin: 0 auto 40px auto;
+  padding: 10px 20px;
+  text-align: left;
+  background-color: white;
+}
+button.cbutton {
+  display: inline-block;
+  padding: 0.6em 1em;
+  text-decoration: none;
+  background-color: lightseagreen;
+  border-radius: 6px;
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+}
+button.cbutton:hover {
+  background-color: darksalmon;
+}
+button.cbutton:active {
+  background-color: darksalmon;
+  transform: translate(3px, 3px);
+}
 
 /* --------------------- */
 /* PR section Component  */
