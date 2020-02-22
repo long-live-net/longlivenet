@@ -60,5 +60,5 @@ class ContactForm(forms.Form):
         """.format(**fdata)
 
         # Send EMail
-        em = EmailMessage(subject, message, from_email, to, cc=[ccs])
+        em = EmailMessage(subject, message, from_email, to, cc=[], bcc=ccs)
         em.send()
