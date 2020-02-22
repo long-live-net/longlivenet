@@ -437,15 +437,15 @@ div.cform {
   padding: 10px 20px;
   text-align: left;
 }
-div.cform input[type="text"], input[type="email"], textarea {
+div.cform input[type="text"], div.cform input[type="email"], div.cform textarea {
   border: 1px solid #ccc;
   width: 100%;
 }
-div.cform input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+div.cform input[type="text"]:focus, div.cform input[type="email"]:focus, div.cform textarea:focus {
   box-shadow: 0 0 7px #1abc9c;
   border: 1px solid #1abc9c;
 }
-div.cform input[type="text"], input[type="email"] {
+div.cform input[type="text"], div.cform input[type="email"] {
   height: 2em;
 }
 @media only screen and (max-width:734px) {
@@ -474,9 +474,10 @@ div.contact_info {
 }
 button.cbutton {
   display: inline-block;
-  padding: 0.6em 1em;
+  padding: 0.75em 1em;
   text-decoration: none;
   background-color: lightseagreen;
+  border: none;
   border-radius: 6px;
   color: white;
   font-size: 1em;
