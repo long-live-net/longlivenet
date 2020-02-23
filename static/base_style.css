@@ -124,7 +124,7 @@ section {
 	transform: translate(-50%, -50%);
   padding: 18px;
   text-align: center;
-  white-space: nowrap;
+/*   white-space: nowrap; */
   font-size: 2em;
   color: white;
   background-color: rgba(0,0,0,0.5);
@@ -451,6 +451,10 @@ div.cform input[type="text"], div.cform input[type="email"] {
 @media only screen and (max-width:734px) {
   div.cform {
     width: 90%;
+    text-align: center;
+  }
+  div.cform input[type="text"], div.cform input[type="email"], div.cform textarea {
+    width: 90%;
   }
 }
 
@@ -569,6 +573,7 @@ h1.underline, h2.underline, h3.underline, h4.underline {
 /* --------------------- */
 .button01 {
   display: inline-block;
+  margin-top: 4px;
   padding: 0.5em 1em;
   text-decoration: none;
   background-color: #668ad8;

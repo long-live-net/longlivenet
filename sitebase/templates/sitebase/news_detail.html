@@ -20,14 +20,13 @@
       {% endif %}
     </ul>
     <p class="news_navi">
-    <a class="button01" href="javascript:history.back();">戻る</a>
     {% if page %}
     <a class="button01" href="{% url 'sitebase:news' %}?page={{page}}">NEWS一覧</a>
     {% else %}
     <a class="button01" href="{% url 'sitebase:news' %}">NEWS一覧</a>
     {% endif %}
-    <a class="button01" href="/#contact">お問い合わせ</a>
-    <a class="button01" href="/">ホーム</a>
+    <a class="button01" href="/#contact">お問い合せ</a>
+    <a class="button01" href="javascript:history.back();">戻る</a>
     </p>
   </div>
 </section>
