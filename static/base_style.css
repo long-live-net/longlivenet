@@ -255,8 +255,46 @@ div.news ul li p.wnh {
   width: 200px;
   background-color: #ccccff;
 }
-div.news ul li p.wnh span:first-child {
+p.wnh span:first-child {
   margin: 0 10px 0 0;
+}
+span.info {
+  display: inline-block;
+  width: 80px;
+  background-image: url('./images/news_info.png');
+  background-repeat: no-repeat;
+  background-position: left center
+}
+span.service {
+  display: inline-block;
+  width: 80px;
+  background-image: url('./images/news_service.png');
+  background-repeat: no-repeat;
+  background-position: left center
+}
+span.work {
+  display: inline-block;
+  width: 80px;
+  background-image: url('./images/news_work.png');
+  background-repeat: no-repeat;
+  background-position: left center
+}
+span.tech {
+  display: inline-block;
+  width: 80px;
+  background-image: url('./images/news_tech.png');
+  background-repeat: no-repeat;
+  background-position: left center
+}
+span.other {
+  display: inline-block;
+  width: 80px;
+  background-image: url('./images/news_other.png');
+  background-repeat: no-repeat;
+  background-position: left center
+}
+span.info:before,span.service:before,span.work:before,span.tech:before,span.other:before {
+  content:"\00A0";
 }
 div.news a {
   text-decoration: none;

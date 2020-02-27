@@ -45,15 +45,15 @@
           <p class="wnh">
             <span>{{news.release_day|date:"Y/m/d"}}</span>
             {% if news.category == 'I' %}
-            <span>INFO</span>
+            <span class="info"></span>
             {% elif news.category == 'S' %}
-            <span>SERVICE</span>
+            <span class="service"></span>
             {% elif news.category == 'W' %}
-            <span>WORK</span>
+            <span class="work"></span>
             {% elif news.category == 'T' %}
-            <span>TECH</span>
+            <span class="tech"></span>
             {% else %}
-            <span>Other</span>
+            <span class="other"></span>
             {% endif %}
           </p>
           <p class="wnd"><a href="{% url 'sitebase:newsdetail' news.id %}">{{news.title}}</a></p>
