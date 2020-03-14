@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block title %}ホーム{% endblock title %}
+
+{% block content %}
+
+{% load static %}
+
+<section id="topimage">
+  <div style="background-image: url('{% static 'images/top01.jpg' %}')">
+    <h1>情報技術をチカラにしたい！<br>
+      ロングリブネットがサポートいたします</h1>
+  </div>
+</section>
+
+<section id="message">
+  <h3 class="underline">Message</h3>
+  <div class="content_block">
+    <div class="pr_eyecatch" style="background-image: url('{% static 'images/message01.jpg' %}')">
+      <h3>システムデザインとか IT 活用とか正直どうしてよいかよく解らないんですよ・・</h3>
+    </div>
+    <div class="pr_leader">
+      <p>多くの方よりこのような悩みをご相談をいただいた気がします</p>
+      <p>
+      このような悩みを解決するには、その悩みに寄り添い適切な技術をご提供できることが第一です。<br/>
+      一方で、お悩みをお持ちの方ご自身や組織自体にも情報技術を正しく知っていただき、自らしっかりと活用できるチカラをある程度養っていただくことも重要です。最終的には、これらの技術を自ら楽しんでご活用いただくようになる事が、長期継続的な悩みの解決に繋がるものと考えます。
+      </p>
+      <p>
+      皆様のシステム開発やクラウド導入を行いつつ、お客様ご自身や組織のチカラを向上するお手伝いができればという想いからロングリブネットを立ち上げました。<br/>
+      どうぞ長い目でお付き合い頂けますと幸いです。
+      </p>
+      <p>ロングリブネット<br>長住 直樹（ナガズミ ナオキ）</p>
+      <p class="lead_button"><a class="button01" href="#contact">お問い合せ</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="whatsnew">
+  <h3 class="underline">What's new</h3>
+  <div class="content_block">
+    <div class="news">
+      <ul>
+        {% for news in news_list %}
+        <li>
+          <p class="wnh">
+            <span>{{news.release_day|date:"Y/m/d"}}</span>
+            {% if news.category == 'I' %}
+            <span class="info"></span>
+            {% elif news.category == 'S' %}
+            <span class="service"></span>
+            {% elif news.category == 'W' %}
+            <span class="work"></span>
+            {% elif news.category == 'T' %}
+            <span class="tech"></span>
+            {% else %}
+            <span class="other"></span>
+            {% endif %}
+          </p>
+          <p class="wnd"><a href="{% url 'sitebase:newsdetail' news.id %}">{{news.title}}</a></p>
+        </li>
+        {% endfor %}
+      </ul>
+      <p class="morenews"><a href="{% url 'sitebase:news' %}">and more ...</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <h3 class="underline">Services</h3>
+  <div class="services">
+    <ul class="container">
+      <li class="box">
+        <ul>
+          <li class="service_title">AWSクラウド導入</li>
+          <li class="service_img" style="background-image: url('/static/images/s-service-aws.jpg')"><a href="#services"></a></li>
+          <li class="service_comment">代表ナガズミはアマゾンウェブサービスジャパン (AWS) のエンジニアとしての経歴がございます。そのキャリアによる技術知見を元に適切なサポートをご提供いたします。</li>
+        </ul>
+      </li>
+      <li class="box">
+        <ul>
+          <li class="service_title">ソフトウェア開発</li>
+          <li class="service_img" style="background-image: url('/static/images/s-service-system.jpg')"><a href="#services"></a></li>
+          <li class="service_comment">お客様のWebアプリケーションなど各種ソフトウェア開発を行います。上流工程から下流工程まで、また、PM や PMO 業務などの開発管理につきましてもお気軽にご相談ください。</li>
+        </ul>
+      </li>
+      <li class="box">
+        <ul>
+          <li class="service_title">技術顧問</li>
+          <li class="service_img" style="background-image: url('/static/images/s-service-advisor.jpg')"><a href="#services"></a></li>
+          <li class="service_comment">特に AWS を前提とするシステムアーキテクチャについて、または開発や組織のマネージメント強化、あるいは技術者育成や環境整備といった内容についてご相談いただけます。</li>
+        </ul>
+      </li>
+      <li class="box">
+        <ul>
+          <li class="service_title">ホームページ作成</li>
+          <li class="service_img" style="background-image: url('/static/images/s-service-hp.jpg')"><a href="#services"></a></li>
+          <li class="service_comment">PC からスマホまでレスポンシブなデザインのホームページを作成いたします。またチャットなどインタラクティブな Web サイトの開発についてもぜひご相談ください。</li>
+        </ul>
+      </li>
+      <li class="box">
+        <ul>
+          <li class="service_title">ITエンジニア育成 (サービス準備中)</li>
+          <li class="service_img" style="background-image: url('/static/images/s-service-education.jpg')"></li>
+          <li class="service_comment">インドや中国出身のグローバルで活躍するエンジニアが増えていますが、我が国出身のエンジニアはまだまだ少ないように思えます。グローバルに活躍できるエンジニアの育成は、ロングリブネットにおける今後の大きなビジョンです。</li>
+        </ul>
+      </li>
+      <li class="box">
+        <ul>
+          <li class="service_title">大人のIT相談 (サービス準備中)</li>
+          <li class="service_img" style="background-image: url('/static/images/s-service-consul.jpg')"></li>
+          <li class="service_comment">組織におけるビジネスシステムを設計しているが現構成で大丈夫か不安、新たなシステム責任者となったが協力会社から提案された内容が正しいのか判断つかない、このようなご相談をプロ目線にてお受けします。1時間単位でご相談いただけます。</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="contact">
+  <h3 class="underline">Contact</h3>
+  <div class="content_block">
+    <div class="pr_eyecatch" style="background-image: url('{% static 'images/contact01.jpg' %}')">
+      <h3>ご連絡はこちらまで<br/>お気軽にご相談ください</h3>
+    </div>
+    <div class="pr_leader">
+      <p>
+      〒210-0007<BR>
+      神奈川県川崎市川崎区駅前本町11番地2 川崎フロンティアビル4階<br>
+      ロングリブネット 長住直樹
+      </p>
+      <p>
+      TEL: 050-5241-3096<BR>
+      URL: https://www.longlivenet.com/
+      </p>
+      <p>
+      <a class="button01" href="/contact">メールでのお問い合せ（お問い合せフォーム）</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

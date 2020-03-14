@@ -1,0 +1,18 @@
+version: '3.2'
+services:
+  app:
+    build: ./app
+    volumes:
+      - sockets:/var/tmp/sockets
+      - ./app/volume/db:/code/sitebase/db
+      - ./app/volume/log:/var/log/uwsgi
+      - ./app/volume/llwork:/llwork
+  web:
+    build: ./web
+    ports:
+      - "80:80"
+    volumes:
+      - sockets:/var/tmp/sockets
+      - ./web/volume/log:/var/log/nginx
+volumes:
+  sockets:

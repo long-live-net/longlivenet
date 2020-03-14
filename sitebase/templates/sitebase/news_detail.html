@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}News{% endblock title %}
+
+{% block content %}
+
+<section id="news_detail" class="center_block">
+  <h1>NEWS</h1>
+  <h3>{{news.title}}</h3>
+  <div class="news_detail">
+    {% if news.photo %}
+    <p class="news_detail_img"
+        style="background-image: url('{{news.photo.url}}')">
+    {% endif %}
+    <ul>
+      <li>発表日: {{news.release_day|date:"Y/m/d"}}</li>
+      <li>{{news.content  | linebreaksbr}}</li>
+      {% if news.link %}
+      <li>詳細はこちら▶︎ <a href="{{news.link}}" target="_blank">{{news.link}}</a></li>
+      {% endif %}
+    </ul>
+    <p class="news_navi">
+    {% if page %}
+    <a class="button01" href="{% url 'sitebase:news' %}?page={{page}}">NEWS一覧</a>
+    {% else %}
+    <a class="button01" href="{% url 'sitebase:news' %}">NEWS一覧</a>
+    {% endif %}
+    <a class="button01" href="/#contact">お問い合せ</a>
+    <a class="button01" href="javascript:history.back();">戻る</a>
+    </p>
+  </div>
+</section>
+
+{% endblock %}

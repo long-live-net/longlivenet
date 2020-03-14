@@ -102,3 +102,14 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# MAC
+.DS_Store
+
+# MyApplication
+media/
+static/admin/
+production/app/sitebase
+production/app/volume
+production/web/volume
+settings_ngzm.py

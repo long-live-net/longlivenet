@@ -1,0 +1,69 @@
+# ------
+# マニュアル
+# ------
+
+uWSGI 公式
+https://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html
+
+django 公式
+https://docs.djangoproject.com/en/3.0/howto/deployment/wsgi/uwsgi/
+
+【Django入門】Nginxを使ってWebサーバーを動かそう
+https://www.sejuku.net/blog/28751
+
+Djangoで静的ファイルとうまくやる
+https://tell-k.github.io/djangocongressjp2019/#1
+
+adminで使用されているcssを取得する
+https://djandjan.hateblo.jp/entry/2018/03/08/225014
+
+# ------
+# 導入手順
+# ------
+
+# uWSGI Install current stable version.
+$ python -m pip install uwsgi
+
+# Run uWSGI:
+$ uwsgi --http :8000 --module mysite.wsgi
+
+ブラウザで動作確認。とりあえず動くはず。
+ただし、/static/ なファイルにアクセスできない状態のはず。
+
+# uWSGI configuration file 
+$ vim sitebase.ini
+```
+[uwsgi]
+chdir=/Users/naoki/DEV/sitebase-on-django
+module=mysite.wsgi:application
+master=True
+pidfile=/tmp/sitebase-master.pid
+vacuum=True
+max-requests=5000
+http=127.0.0.1:8080
+## daemonize=/var/log/uwsgi/sitebase.log
+static-map=/static=/Users/naoki/DEV/sitebase-on-django/static
+```
+上記の static-map は、/static/ なファイルにアクセスするためおまじない。
+
+# uwsgi 実行、これで Static も含め動作するはず
+$ uwsgi --ini sitebase.ini
+
+なお、django の設計思想において、STATIC なファイルは本来 Web サーバから直接取得する形とするのが正解。
+なので、django にアクセスするのはあくまでも動的なコンテンツのみとなる。
+https://tell-k.github.io/djangocongressjp2019/#1
+
+この状態でも、admin の画面で STATIC なファイルが取得できない状態となった。
+これを解消するために、以下の処置を追加する。
+
+# settings.py に以下を追加
+```
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+```
+
+# adminで使用されているcssを取得する
+# コマンドラインにて
+$ python manage.py collectstatic
+
+これで、adminで使用されているcssが/static/admin/css に集まる。
+なるほど！！！
